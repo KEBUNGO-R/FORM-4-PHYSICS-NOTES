@@ -7,8 +7,6 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Arial,sans-serif;background:#f5f6fa;color:#1a1a2e;min-height:100vh}
-
-    /* ── Header ── */
     header{background:linear-gradient(135deg,#1a1a6b 0%,#16213e 55%,#0f3460 100%);color:#fff;padding:50px 24px 42px;text-align:center}
     .header-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 18px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
     header h1{font-size:2.8em;font-weight:700;margin-bottom:10px;letter-spacing:.02em}
@@ -17,25 +15,15 @@
     .stat{text-align:center}
     .stat-num{font-size:1.8em;font-weight:700;color:#89b4fa}
     .stat-label{font-size:11px;opacity:.7;text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
-
-    /* ── Progress bar ── */
     .progress-wrap{background:#fff;border-bottom:1px solid #dde3f0;padding:14px 24px}
     .progress-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:16px}
     .progress-label{font-size:13px;color:#555;white-space:nowrap}
     .progress-bar{flex:1;height:8px;background:#eef2fb;border-radius:4px;overflow:hidden}
-    .progress-fill{height:100%;background:linear-gradient(90deg,#1a1a6b,#3a82f7);border-radius:4px;transition:width .6s ease}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#1a1a6b,#3a82f7);border-radius:4px}
     .progress-pct{font-size:13px;font-weight:700;color:#1a1a6b;white-space:nowrap}
-
-    /* ── Main layout ── */
     .page-wrap{max-width:960px;margin:0 auto;padding:32px 20px 60px}
-
-    /* ── Section label ── */
     .section-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#888;margin-bottom:16px;font-weight:600}
-
-    /* ── Chapter grid ── */
     .chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:40px}
-
-    /* ── Chapter card ── */
     .card{background:#fff;border-radius:12px;border:1px solid #dde3f0;overflow:hidden;transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column}
     .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,26,107,.10)}
     .card-header{padding:16px 18px 14px;display:flex;align-items:flex-start;gap:14px}
@@ -48,79 +36,54 @@
     .card-footer{padding:12px 18px;border-top:1px solid #f0f2f8;display:flex;align-items:center;justify-content:space-between}
     .card-status{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:20px}
     .status-done{background:#dcfce7;color:#166534}
-    .status-pending{background:#f1f5f9;color:#64748b}
-    .card-link{font-size:13px;font-weight:600;text-decoration:none;padding:6px 14px;border-radius:7px;transition:background .15s}
-    .card-link.active{background:#1a1a6b;color:#fff}
-    .card-link.active:hover{background:#2563eb}
-    .card-link.inactive{background:#f1f5f9;color:#94a3b8;cursor:not-allowed;pointer-events:none}
-
-    /* ── How to use ── */
+    .card-link{font-size:13px;font-weight:600;text-decoration:none;padding:6px 14px;border-radius:7px;transition:background .15s;background:#1a1a6b;color:#fff}
+    .card-link:hover{background:#2563eb}
     .how-to{background:#fff;border-radius:12px;border:1px solid #dde3f0;padding:24px 28px;margin-bottom:32px}
     .how-to h2{font-size:1em;text-transform:uppercase;letter-spacing:.1em;color:#1a1a6b;margin-bottom:16px}
     .steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
     .how-step{display:flex;gap:12px;align-items:flex-start}
     .how-num{width:28px;height:28px;border-radius:50%;background:#1a1a6b;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .how-text{font-size:13.5px;color:#444;line-height:1.5}
-
-    /* ── Footer ── */
     footer{text-align:center;padding:28px 20px;font-size:13px;color:#888;border-top:1px solid #dde3f0}
     footer a{color:#1a1a6b}
-
-    /* ── Upload notice ── */
-    .upload-notice{background:#fff8e1;border:1px solid #f0c040;border-left:4px solid #f0a500;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:28px;font-size:14px;color:#78350f}
-    .upload-notice strong{color:#92400e}
-
-    @media(max-width:600px){
-      header h1{font-size:2em}
-      .header-stats{gap:20px}
-      .chapter-grid{grid-template-columns:1fr}
-    }
+    @media(max-width:600px){header h1{font-size:2em}.header-stats{gap:20px}.chapter-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-
 <header>
   <div class="header-badge">KEBUNGO-R &nbsp;&middot;&nbsp; Kenya Curriculum</div>
   <h1>Form 4 Physics Notes</h1>
   <p class="tagline">Interactive ebook &mdash; diagrams, calculators, and step-by-step solutions</p>
   <div class="header-stats">
-    <div class="stat"><div class="stat-num">10</div><div class="stat-label">Chapters</div></div>
-    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Complete</div></div>
-    <div class="stat"><div class="stat-num">9</div><div class="stat-label">Coming Soon</div></div>
-    <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Practice Problems</div></div>
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Chapters</div></div>
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Complete</div></div>
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Calculators</div></div>
+    <div class="stat"><div class="stat-num">&infin;</div><div class="stat-label">Practice Problems</div></div>
   </div>
 </header>
 
 <div class="progress-wrap">
   <div class="progress-inner">
     <span class="progress-label">Ebook progress</span>
-    <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
-    <span class="progress-pct">1 of 10 chapters</span>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <span class="progress-pct">11 of 11 chapters &#10003;</span>
   </div>
 </div>
 
 <div class="page-wrap">
-
-  <div class="upload-notice">
-    <strong>&#128221; Note for the author:</strong> Chapters marked <em>Coming Soon</em> will be activated once the corresponding .docx files are uploaded and processed. Upload your remaining 9 chapter files and each card below will become a live link.
-  </div>
-
   <div class="how-to">
     <h2>How to use this ebook</h2>
     <div class="steps">
-      <div class="how-step"><div class="how-num">1</div><div class="how-text">Click any <strong>green chapter card</strong> to open that topic</div></div>
-      <div class="how-step"><div class="how-num">2</div><div class="how-text">Read the notes, study the <strong>diagrams</strong> from the textbook</div></div>
-      <div class="how-step"><div class="how-num">3</div><div class="how-text">Use the <strong>Interactive Calculator</strong> to explore physics formulas</div></div>
+      <div class="how-step"><div class="how-num">1</div><div class="how-text">Click any chapter card below to open that topic</div></div>
+      <div class="how-step"><div class="how-num">2</div><div class="how-text">Read the notes and study the <strong>diagrams</strong> from the textbook</div></div>
+      <div class="how-step"><div class="how-num">3</div><div class="how-text">Use the <strong>Interactive Calculator</strong> to explore formulas</div></div>
       <div class="how-step"><div class="how-num">4</div><div class="how-text">Attempt the <strong>Review Exercise</strong> at the end of each chapter</div></div>
     </div>
   </div>
 
-  <div class="section-label">Form 4 Physics &mdash; All Chapters</div>
-
+  <div class="section-label">Form 4 Physics &mdash; All 11 Chapters</div>
   <div class="chapter-grid">
-
-    <!-- 4.1 Thin Lenses -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#e8f5e9">&#128269;</div>
         <div class="card-meta">
@@ -128,15 +91,13 @@
           <div class="card-title">Thin Lenses</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">Converging and diverging lenses, ray diagrams, lens formula, magnification and optical instruments.</div></div>
+      <div class="card-body"><div class="card-desc">Converging and diverging lenses, ray diagrams, lens formula, magnification, and optical instruments.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_1_Thin_Lenses.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.2 Uniform Circular Motion -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#fce4ec">&#9711;</div>
         <div class="card-meta">
@@ -146,13 +107,11 @@
       </div>
       <div class="card-body"><div class="card-desc">Angular velocity, centripetal force and acceleration, applications in machines and planetary motion.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_2_Uniform_Circular_Motion.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.3 Floating and Sinking -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#e3f2fd">&#128674;</div>
         <div class="card-meta">
@@ -160,15 +119,13 @@
           <div class="card-title">Floating and Sinking</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">Archimedes' principle, upthrust, relative density, hydrometer and practical applications.</div></div>
+      <div class="card-body"><div class="card-desc">Archimedes&rsquo; principle, upthrust, law of flotation, relative density, and applications.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_3_Floating_and_Sinking.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.4 Electromagnetic Spectrum -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#f3e5f5">&#127752;</div>
         <div class="card-meta">
@@ -176,15 +133,13 @@
           <div class="card-title">Electromagnetic Spectrum</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">Types of EM waves, properties, frequency and wavelength ranges, sources and detectors.</div></div>
+      <div class="card-body"><div class="card-desc">Properties of EM waves, classification, sources, detectors, applications, and hazards.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_4_Electromagnetic_Spectrum.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.5 Electromagnetic Induction -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#fff8e1">&#9889;</div>
         <div class="card-meta">
@@ -192,15 +147,13 @@
           <div class="card-title">Electromagnetic Induction</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">Faraday's law, Lenz's law, mutual and self-induction, transformers and AC generators.</div></div>
+      <div class="card-body"><div class="card-desc">Faraday&rsquo;s law, Lenz&rsquo;s law, AC and DC generators, transformers, and power transmission.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_5_Electromagnetic_Induction.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.6 Mains Electricity -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#e8eaf6">&#128268;</div>
         <div class="card-meta">
@@ -208,15 +161,13 @@
           <div class="card-title">Mains Electricity</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">AC and DC, power transmission, fuses, earthing, electrical safety and domestic wiring.</div></div>
+      <div class="card-body"><div class="card-desc">Sources of power, transmission, domestic wiring, energy consumption and costing.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_6_Mains_Electricity.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.7 Cathode Rays and CRO -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#ede7f6">&#128250;</div>
         <div class="card-meta">
@@ -224,15 +175,13 @@
           <div class="card-title">Cathode Rays &amp; CRO</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">Thermionic emission, cathode ray tube, CRO uses, deflection of electrons in electric and magnetic fields.</div></div>
+      <div class="card-body"><div class="card-desc">Thermionic emission, cathode ray tube, CRO measurements and applications.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_7_Cathode_Rays_and_Cathode_Ray_Tube.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.8 X-Rays — DONE -->
-    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 2px #a7f3d0">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#dcfce7">&#9762;</div>
         <div class="card-meta">
@@ -240,15 +189,13 @@
           <div class="card-title">X-Rays</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">Production, properties, hard and soft X-rays, energy calculations using &lambda;<sub>min</sub> = hc/eV, uses and dangers.</div></div>
+      <div class="card-body"><div class="card-desc">Production, properties, hard and soft X-rays, energy calculations, uses and dangers.</div></div>
       <div class="card-footer">
         <span class="card-status status-done">&#10003; Complete</span>
-        <a class="card-link active" href="4_8_X-Rays.html">Open Chapter &rarr;</a>
+        <a class="card-link" href="4_8_X-Rays.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.9 Photoelectric Effect -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#e0f7fa">&#128161;</div>
         <div class="card-meta">
@@ -256,15 +203,13 @@
           <div class="card-title">Photoelectric Effect</div>
         </div>
       </div>
-      <div class="card-body"><div class="card-desc">Einstein's photoelectric equation, threshold frequency, work function, stopping potential and applications.</div></div>
+      <div class="card-body"><div class="card-desc">Einstein&rsquo;s photoelectric equation, threshold frequency, work function, and applications.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_9_Photoelectric_Effect.html">Open &rarr;</a>
       </div>
     </div>
-
-    <!-- 4.10 Radioactivity -->
-    <div class="card">
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
       <div class="card-header">
         <div class="card-icon" style="background:#ffebee">&#9762;</div>
         <div class="card-meta">
@@ -274,19 +219,29 @@
       </div>
       <div class="card-body"><div class="card-desc">Alpha, beta and gamma radiation, half-life, nuclear equations, fission, fusion and applications.</div></div>
       <div class="card-footer">
-        <span class="card-status status-pending">Coming Soon</span>
-        <span class="card-link inactive">Not yet available</span>
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_91_Radioactivity.html">Open &rarr;</a>
       </div>
     </div>
-
-  </div><!-- end chapter-grid -->
-
-</div><!-- end page-wrap -->
-
+    <div class="card" style="border-color:#a7f3d0;box-shadow:0 0 0 1px #a7f3d0">
+      <div class="card-header">
+        <div class="card-icon" style="background:#e8f5e9">&#128187;</div>
+        <div class="card-meta">
+          <div class="card-num">Chapter 4.11</div>
+          <div class="card-title">Electronics</div>
+        </div>
+      </div>
+      <div class="card-body"><div class="card-desc">Energy bands, semiconductors, doping, p-n junction diode, and rectification.</div></div>
+      <div class="card-footer">
+        <span class="card-status status-done">&#10003; Complete</span>
+        <a class="card-link" href="4_92_Electronics.html">Open &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
 <footer>
   KEBUNGO-R &nbsp;&middot;&nbsp; Form 4 Physics Interactive Ebook &nbsp;&middot;&nbsp; Kenya Curriculum &nbsp;&middot;&nbsp;
   <a href="https://kebungo-r.github.io/FORM-4-PHYSICS-NOTES/">kebungo-r.github.io/FORM-4-PHYSICS-NOTES</a>
 </footer>
-
 </body>
 </html>
